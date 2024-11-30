@@ -7,7 +7,7 @@ on:
     paths:
       - .github/workflows/continuous-integration.yml
       - composer.*
-      - lib/**
+      - src/**
       - phpunit.xml.dist
       - test_fixtures/**
       - tests/**
@@ -17,7 +17,7 @@ on:
     paths:
       - .github/workflows/continuous-integration.yml
       - composer.*
-      - lib/**
+      - src/**
       - phpunit.xml.dist
       - test_fixtures/**
       - tests/**

@@ -8,7 +8,7 @@ on:
     paths:
       - .github/workflows/coding-standards.yml
       - composer.*
-      - lib/**
+      - src/**
       - phpcs.xml.dist
       - test_fixtures/**
       - tests/**
@@ -18,7 +18,7 @@ on:
     paths:
       - .github/workflows/coding-standards.yml
       - composer.*
-      - lib/**
+      - src/**
       - phpcs.xml.dist
       - test_fixtures/**
       - tests/**

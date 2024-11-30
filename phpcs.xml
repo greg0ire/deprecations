@@ -12,7 +12,7 @@
     <config name="php_version" value="70100"/>
 
     <!-- Directories to be checked -->
-    <file>lib</file>
+    <file>src</file>
     <file>tests</file>
     <file>test_fixtures</file>
 
