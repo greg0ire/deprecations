@@ -7,7 +7,7 @@ on:
     paths:
       - .github/workflows/static-analysis.yml
       - composer.*
-      - lib/**
+      - src/**
       - phpstan*
       - psalm*
       - test_fixtures/**
@@ -18,7 +18,7 @@ on:
     paths:
       - .github/workflows/static-analysis.yml
       - composer.*
-      - lib/**
+      - src/**
       - phpstan*
       - psalm*
       - test_fixtures/**
