@@ -6,4 +6,3 @@
 /tests export-ignore
 /test_fixtures export-ignore
 /phpstan.neon export-ignore
-/psalm.xml export-ignore

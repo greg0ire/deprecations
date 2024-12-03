@@ -9,7 +9,6 @@ on:
       - composer.*
       - src/**
       - phpstan*
-      - psalm*
       - test_fixtures/**
       - tests/**
   push:
@@ -20,11 +19,10 @@ on:
       - composer.*
       - src/**
       - phpstan*
-      - psalm*
       - test_fixtures/**
       - tests/**
 
 jobs:
   static-analysis:
     name: "Static Analysis"
-    uses: "doctrine/.github/.github/workflows/static-analysis.yml@3.0.0"
+    uses: "doctrine/.github/.github/workflows/phpstan.yml@6.0.0"
