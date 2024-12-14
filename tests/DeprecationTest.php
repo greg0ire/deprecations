@@ -14,7 +14,6 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use ReflectionProperty;
-use Throwable;
 
 use function method_exists;
 use function set_error_handler;
@@ -139,22 +138,19 @@ class DeprecationTest extends TestCase
         $this->assertEquals(2, Deprecation::getUniqueTriggeredDeprecationsCount());
     }
 
-    public function testDeprecationResetsCounts(): void
+    public function testDisableResetsCounts(): void
     {
-        try {
-            Deprecation::trigger(
-                'doctrine/orm',
-                'https://github.com/doctrine/deprecations/1234',
-                'this is deprecated %s %d',
-                'foo',
-                1234
-            );
-        } catch (Throwable $e) {
-            Deprecation::disable();
+        Deprecation::trigger(
+            'doctrine/orm',
+            'https://github.com/doctrine/deprecations/1234',
+            'this is deprecated %s %d',
+            'foo',
+            1234
+        );
+        Deprecation::disable();
 
-            $this->assertEquals(0, Deprecation::getUniqueTriggeredDeprecationsCount());
-            $this->assertEquals(['https://github.com/doctrine/deprecations/1234' => 0], Deprecation::getTriggeredDeprecations());
-        }
+        $this->assertEquals(0, Deprecation::getUniqueTriggeredDeprecationsCount());
+        $this->assertEquals(['https://github.com/doctrine/deprecations/1234' => 0], Deprecation::getTriggeredDeprecations());
     }
 
     public function expectDeprecationMock(string $message, string $identifier, string $package): LoggerInterface
