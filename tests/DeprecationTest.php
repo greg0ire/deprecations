@@ -9,13 +9,11 @@ use DeprecationTests\Foo;
 use DeprecationTests\RootDeprecation;
 use Doctrine\Deprecations\PHPUnit\VerifyDeprecations;
 use Doctrine\Foo\Baz;
-use PHPUnit\Framework\Error\Deprecated;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use ReflectionProperty;
 
-use function method_exists;
 use function set_error_handler;
 
 class DeprecationTest extends TestCase
@@ -36,24 +34,6 @@ class DeprecationTest extends TestCase
         Deprecation::disable();
 
         Deprecation::enableTrackingDeprecations();
-    }
-
-    public function expectDeprecation(): void
-    {
-        if (method_exists(TestCase::class, 'expectDeprecation')) {
-            parent::expectDeprecation();
-        } else {
-            parent::expectException(Deprecated::class);
-        }
-    }
-
-    public function expectDeprecationMessage(string $message): void
-    {
-        if (method_exists(TestCase::class, 'expectDeprecationMessage')) {
-            parent::expectDeprecationMessage($message);
-        } else {
-            parent::expectExceptionMessage($message);
-        }
     }
 
     public function expectErrorHandler(string $expectedMessage, string $identifier, int $times = 1): void
