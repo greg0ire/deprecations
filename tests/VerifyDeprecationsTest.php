@@ -7,6 +7,7 @@ namespace Doctrine\Deprecations;
 use Doctrine\Deprecations\PHPUnit\VerifyDeprecations;
 use PHPUnit\Framework\TestCase;
 
+use function restore_error_handler;
 use function set_error_handler;
 
 class VerifyDeprecationsTest extends TestCase
@@ -18,6 +19,11 @@ class VerifyDeprecationsTest extends TestCase
         set_error_handler(static function (): bool {
             return false;
         });
+    }
+
+    public function tearDown(): void
+    {
+        restore_error_handler();
     }
 
     public function testExpectDeprecationWithIdentifier(): void
