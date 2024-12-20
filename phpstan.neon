@@ -10,11 +10,6 @@ parameters:
             message: '/^Static property Doctrine\\Deprecations\\Deprecation::\$type \(int<0, 7>\|null\) does not accept int\.$/'
             path: src/Deprecation.php
 
-        -
-            message: '/^.*method_exists.*expectDeprecation.*$/'
-            path: tests/DeprecationTest.php
-            count: 2
-
 includes:
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
